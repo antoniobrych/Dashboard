@@ -31,7 +31,7 @@ def get_generic_data(): #ibov, ifix, btc, cdi
     
     df_cdi = cdi_data()
     df = pd.merge(df, df_cdi['CDI'], left_index=True, right_index=True)
-    
+    df = df/df.iloc[0,:]
     df = df.ffill().bfill()
     #df = df.interpolate()
 
